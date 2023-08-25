@@ -7,61 +7,85 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Integrante {
+public class VentaDetalle {
     
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue Integer id;
 
     @ManyToOne()
-    @JoinColumn(name = "id_banda")
-    private Banda banda;
+    @JoinColumn(name = "id_producto")
+    private Producto producto;
 
     @ManyToOne()
-    @JoinColumn(name = "id_musico")
-    private Musico musico;
+    @JoinColumn(name = "id_venta")
+    private Venta venta;
 
-    @ManyToOne()
+	private Integer cantidad;
+
+    /*@ManyToOne()
     @JoinColumn(name = "id_instrumento")
-    private Instrumento instrumento;
+    private Instrumento instrumento;*/
 
-    public Integrante() {}
+    public VentaDetalle() {}
 
-    public Integrante(Banda banda, Musico musico, Instrumento instrumento) {
-        this.banda = banda;
-        this.musico = musico;
-        this.instrumento = instrumento;
+	
+
+	public VentaDetalle(Producto producto, Venta venta, Integer cantidad) {
+        this.producto = producto;
+        this.venta = venta;
+        this.cantidad = cantidad;
     }
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
-	public Banda getBanda() {
-		return banda;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setBanda(Banda banda) {
-		this.banda = banda;
-	}
 
-	public Musico getMusico() {
-		return musico;
-	}
 
-	public void setMusico(Musico musico) {
-		this.musico = musico;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Instrumento getInstrumento() {
-		return instrumento;
-	}
 
-	public void setInstrumento(Instrumento instrumento) {
-		this.instrumento = instrumento;
-	}
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+
+
+    public Venta getVenta() {
+        return venta;
+    }
+
+
+
+    public void setVenta(Venta venta) {
+        this.venta = venta;
+    }
+
+
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+
+	
+    
 
     
 
